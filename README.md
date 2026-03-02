@@ -32,13 +32,6 @@ Persistent Data: All tasks and members are saved in localStorage.
 
 Responsive Design: Works smoothly on desktop screens.
 
-📁 Project Structure
-project-folder/
-│
-├─ index.html           # Main HTML file
-├─ style.css            # Styles for members, tasks, and cards
-├─ script.js            # Main JS file with displayMembers and task logic
-└─ README.md            # Project documentation
 ⚡ How to Use
 
 Open index.html in your browser.
