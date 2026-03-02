@@ -68,4 +68,7 @@ Add task deadlines and notifications
 
 👩‍💻 Author
 
-Shorok Shehata 
+Shrouk Shehata 
+
+www.linkedin.com/in/shrouk-magdy-shehata-92449824b
+
