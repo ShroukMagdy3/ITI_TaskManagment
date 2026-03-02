@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Management</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>ITI Task Management</h1>
+      <section>
+        <div class="task-board" draggable="true">
+        <div class="header">
+          <h3>📅 Tasks Board</h3>
+          <p class="numTasks">0</p>
+        </div>
+        <div class="content">
+          <input class="inputTask" type="text" placeholder="Add A Task ... " />
+          <button class="addTask">Add</button>
+        </div>
+        <div class="tasks-list">
+          <p class="noTasks">No Tasks Added Here ...</p>
+        </div>
+      </div>
+      <div class="members">
+        
+      </div>
+      </section>
+    </header>
+    <div class="popup-overlay">
+      <div class="popup">
+        <button class="close-btn" onclick="hidePopup()">✕</button>
+        <h2>👥 Set Up your Team</h2>
+        <p>Enter your team member separated by comma</p>
+
+        <input
+          type="text"
+          class="teamInput"
+          placeholder="eg, Shorok , Sara , Sohaila ... "
+        />
+
+        <div class="error-message"></div>
+
+        <button class="add" onclick="addMember()">Create Board</button>
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
