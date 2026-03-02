@@ -75,4 +75,4 @@ Add task deadlines and notifications
 
 👩‍💻 Author
 
-Shorok Shehata –
+Shorok Shehata 
