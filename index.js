@@ -13,7 +13,6 @@ let membersData = JSON.parse(localStorage.getItem("membersData")) || [];
 
 
 function addMember() {
-
   let names = teamInput.value
     .split(',')
     .map(name => name.trim())
@@ -39,19 +38,34 @@ function addMember() {
   setTimeout(() => {
     popup.style.display = "none"
     displayMembers()
-
   }, 1000);
 
   teamInput.value = "";
 }
 
+function deleteMember(memberIndex) {
+  // إرجاع تاسك الميمبر للبورد
+  membersData[memberIndex].tasks.forEach(t => {
+    tasks.push(t.text);
+  });
+
+  membersData.splice(memberIndex, 1);
+
+  localStorage.setItem("membersData", JSON.stringify(membersData));
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+
+  displayTasks();
+  displayMembers();
+}
+
 function displayMembers() {
   let container = document.querySelector('.members');
   container.innerHTML = '';
-  membersData.forEach(function (member) {
+  membersData.forEach(function (member, memberIndex) {
     let card = document.createElement('div');
     card.className = "card";
     card.innerHTML = `
+      <button class="delete-member-btn" title="Remove member">✕</button>
       <div class="member-info">
         <div class="header">
           <h3>👤 ${member.name}</h3>
@@ -63,6 +77,11 @@ function displayMembers() {
         <div class="member-tasks"></div>
       </div>
     `;
+
+    card.querySelector(".delete-member-btn").addEventListener("click", function () {
+      deleteMember(memberIndex);
+    });
+
     container.appendChild(card);
   });
 
@@ -76,6 +95,7 @@ function displayMembers() {
       let topRow = document.createElement("div");
       topRow.className = "top-row";
       let title = document.createElement("h4");
+      title.className = "task-title";
       title.innerText = task.text;
 
       let deleteBtn = document.createElement("span");
@@ -95,21 +115,15 @@ function displayMembers() {
       select.value = task.status;
 
       select.addEventListener("change", function () {
-
         membersData[memberIndex].tasks[taskIndex].status = this.value;
-
         taskDiv.classList.remove("not", "ongoing", "done");
         taskDiv.classList.add(this.value);
-
         localStorage.setItem("membersData", JSON.stringify(membersData));
       });
 
       deleteBtn.addEventListener("click", function () {
-
         membersData[memberIndex].tasks.splice(taskIndex, 1);
-
         localStorage.setItem("membersData", JSON.stringify(membersData));
-
         displayMembers();
       });
 
@@ -128,14 +142,12 @@ function displayMembers() {
     });
 
     taskArea.addEventListener("drop", function (e) {
-
       e.preventDefault();
       taskArea.classList.remove("drag-active");
 
       let taskIndex = e.dataTransfer.getData("taskIndex");
 
       if (taskIndex !== null) {
-
         membersData[memberIndex].tasks.push({
           text: tasks[taskIndex],
           status: "not"
@@ -150,9 +162,7 @@ function displayMembers() {
         displayMembers();
       }
     });
-
   });
-
 }
 
 function hidePopup() {
