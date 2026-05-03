@@ -16,7 +16,6 @@
   --dark: #3d3d3d;
 }
 
-/* ---- BACKGROUND CANVAS ---- */
 #bg-canvas {
   position: fixed;
   top: 0;
@@ -35,7 +34,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ---- HEADER ---- */
 header {
   position: relative;
   z-index: 1;
@@ -60,7 +58,6 @@ h1::after  { content: ' 🎉'; }
   50%       { transform: translateY(-5px) rotate(1deg); }
 }
 
-/* ---- SECTION LAYOUT ---- */
 section {
   display: flex;
   justify-content: flex-start;
@@ -71,7 +68,6 @@ section {
   z-index: 1;
 }
 
-/* ---- TASK BOARD ---- */
 .task-board {
   background: var(--white);
   padding: 20px;
@@ -104,7 +100,6 @@ section {
   to   { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
 }
 
-/* ---- HEADER ROW ---- */
 .header {
   display: flex;
   justify-content: space-between;
@@ -136,7 +131,6 @@ section {
   50%       { transform: scale(1.1); }
 }
 
-/* ---- ADD TASK ROW ---- */
 .content {
   display: flex;
   gap: 8px;
@@ -209,7 +203,6 @@ section {
   50%       { opacity: 1; }
 }
 
-/* ---- TASKS IN BOARD ---- */
 .task {
   background: white;
   padding: 10px 15px;
@@ -255,11 +248,10 @@ section {
   transform: scale(1.1) rotate(5deg);
 }
 
-/* ---- DELETE MEMBER BUTTON ---- */
 .delete-member-btn {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 5px;
+  right: 10px;
   background: #ffecec;
   border: none;
   font-size: 14px;
@@ -282,7 +274,6 @@ section {
   transform: rotate(90deg) scale(1.15);
 }
 
-/* ---- MEMBER CARDS ---- */
 .members {
   width: 70%;
   display: flex;
@@ -306,7 +297,6 @@ section {
   position: relative;
 }
 
-/* Alternating colorful borders */
 .card:nth-child(1) { border: 4px solid var(--sky);     box-shadow: 5px 5px 0 var(--sky); }
 .card:nth-child(2) { border: 4px solid var(--grass);   box-shadow: 5px 5px 0 var(--grass); }
 .card:nth-child(3) { border: 4px solid var(--coral);   box-shadow: 5px 5px 0 var(--coral); }
@@ -318,7 +308,6 @@ section {
   transform: translateY(-6px) rotate(0.5deg);
 }
 
-/* Emoji avatar per card */
 .card::before {
   content: '😊';
   position: absolute;
@@ -341,7 +330,6 @@ section {
   margin-top: 10px;
 }
 
-/* ---- MEMBER TASKS ---- */
 .member-tasks {
   min-height: 100px;
   margin-top: 15px;
@@ -426,7 +414,6 @@ section {
   border-color: var(--purple);
 }
 
-/* ---- DRAG ACTIVE ---- */
 .drag-active {
   background: #e6f9ff;
   border: 3px dashed var(--sky);
@@ -439,7 +426,6 @@ section {
   50%       { background: #d0f0fb; }
 }
 
-/* ---- POPUP ---- */
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -591,4 +577,206 @@ section {
   background: var(--coral);
   color: white;
   transform: rotate(90deg) scale(1.1);
+}
+
+section {
+  flex-direction: column;
+  padding: 10px 12px 24px;
+}
+
+.task-board {
+  width: 100%;
+  margin: 0 0 10px 0;
+  min-height: unset;
+}
+
+.members {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  min-height: unset;
+}
+
+.card {
+  width: 100%;
+  margin: 0;
+  min-height: unset;
+}
+.addMemberBtn {
+  background: linear-gradient(135deg, var(--purple), #a855f7);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 16px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.15);
+  transition: 0.2s;
+}
+
+.addMemberBtn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 4px 5px 0 rgba(0,0,0,0.2);
+}
+
+.addMemberBtn:active {
+  transform: translateY(1px) scale(0.97);
+}
+
+section {
+  flex-direction: column;
+  padding: 10px 12px 24px;
+}
+
+.task-board {
+  width: 100%;
+  margin: 0 0 10px 0;
+  min-height: unset;
+  box-sizing: border-box;
+}
+
+.members {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  min-height: unset;
+}
+
+.card {
+  width: 100%;
+  margin: 0;
+  min-height: unset;
+  box-sizing: border-box;
+}
+
+.content input {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Add Member button div */
+.add-member-wrapper {
+  text-align: center;
+  padding: 6px 12px 0;
+}
+
+/* ---- 480px+ : كارتين جنب بعض ---- */
+@media (min-width: 480px) {
+  h1 {
+    font-size: 2rem;
+    padding: 20px 16px 8px;
+  }
+
+  .members {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---- 768px+ : task-board جنب members ---- */
+@media (min-width: 768px) {
+  section {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    padding: 15px 20px 30px;
+    gap: 15px;
+  }
+
+  .task-board {
+    width: 280px;
+    flex-shrink: 0;
+    min-height: 400px;
+    margin: 10px 0;
+  }
+
+  .members {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    min-height: 300px;
+  }
+
+  .card {
+    width: 100%;
+    min-height: 300px;
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    padding: 24px 20px 10px;
+  }
+}
+
+/* ---- 1024px+ : 3 كروت في الصف ---- */
+@media (min-width: 1024px) {
+  .task-board {
+    width: 300px;
+    min-height: 450px;
+  }
+
+  .members {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    padding: 28px 20px 10px;
+  }
+}
+
+/* ---- أصغر من 480px : input + زرار تحت بعض ---- */
+@media (max-width: 479px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .content input,
+  .addTask {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h1::before,
+  h1::after {
+    display: none;
+  }
+
+  .addMemberBtn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .popup {
+    padding: 32px 20px 24px;
+    border-radius: 20px;
+  }
+
+  .popup h2 { font-size: 1.4rem; }
+  .popup p  { font-size: 0.88rem; }
+
+  .popup input {
+    padding: 11px 14px;
+    font-size: 0.9rem;
+  }
+
+  .popup .add {
+    padding: 13px 20px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .task-select   { width: 100%; font-size: 0.8rem; }
+  .task2         { padding: 10px; }
+  .card .header h3 { font-size: 0.9rem; }
+  .memberTask    { font-size: 0.85rem; padding: 4px 10px; }
 }

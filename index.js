@@ -218,3 +218,13 @@ function displayTasks() {
 
   numTasks.textContent = tasks.length;
 }
+
+function showPopup() {
+  teamInput.value = "";
+  errorMsg.innerHTML = "";
+  popup.style.display = "flex";
+}
+
+function hidePopup() {
+  popup.style.display = "none";
+}
