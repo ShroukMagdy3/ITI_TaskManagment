@@ -9,23 +9,28 @@
   <body>
     <header>
       <h1>Task Management</h1>
+      <div class="add-member-wrapper">
+        <button class="addMemberBtn" onclick="showPopup()">+ Add Member</button>
+      </div>
       <section>
         <div class="task-board" draggable="true">
-        <div class="header">
-          <h3>📅 Tasks Board</h3>
-          <p class="numTasks">0</p>
+          <div class="header">
+            <h3>📅 Tasks Board</h3>
+            <p class="numTasks">0</p>
+          </div>
+          <div class="content">
+            <input
+              class="inputTask"
+              type="text"
+              placeholder="Add A Task ... "
+            />
+            <button class="addTask">Add</button>
+          </div>
+          <div class="tasks-list">
+            <p class="noTasks">No Tasks Added Here ...</p>
+          </div>
         </div>
-        <div class="content">
-          <input class="inputTask" type="text" placeholder="Add A Task ... " />
-          <button class="addTask">Add</button>
-        </div>
-        <div class="tasks-list">
-          <p class="noTasks">No Tasks Added Here ...</p>
-        </div>
-      </div>
-      <div class="members">
-        
-      </div>
+        <div class="members"></div>
       </section>
     </header>
     <div class="popup-overlay">
