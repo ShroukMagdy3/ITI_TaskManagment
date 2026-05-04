@@ -274,16 +274,6 @@ section {
   transform: rotate(90deg) scale(1.15);
 }
 
-.members {
-  width: 70%;
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  border-radius: 20px;
-  min-height: 300px;
-  gap: 8px;
-}
-
 .card {
   width: 30%;
   background: var(--white);
@@ -637,13 +627,7 @@ section {
   box-sizing: border-box;
 }
 
-.members {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  min-height: unset;
-}
+
 
 .card {
   width: 100%;
@@ -657,25 +641,11 @@ section {
   min-width: 0;
 }
 
-/* Add Member button div */
 .add-member-wrapper {
   text-align: center;
   padding: 6px 12px 0;
 }
 
-/* ---- 480px+ : كارتين جنب بعض ---- */
-@media (min-width: 480px) {
-  h1 {
-    font-size: 2rem;
-    padding: 20px 16px 8px;
-  }
-
-  .members {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* ---- 768px+ : task-board جنب members ---- */
 @media (min-width: 768px) {
   section {
     flex-direction: row;
@@ -712,7 +682,6 @@ section {
   }
 }
 
-/* ---- 1024px+ : 3 كروت في الصف ---- */
 @media (min-width: 1024px) {
   .task-board {
     width: 300px;
@@ -729,7 +698,6 @@ section {
   }
 }
 
-/* ---- أصغر من 480px : input + زرار تحت بعض ---- */
 @media (max-width: 479px) {
   .content {
     flex-direction: column;
